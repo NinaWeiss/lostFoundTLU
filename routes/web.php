@@ -34,7 +34,10 @@ Route::resource('/categories', 'AdminCategoriesController')->only([
     'index', 'store', 'update', 'destroy'
 ]);
 
-Route::get('/admin/locations', 'AdminLocationsController@index')->name('locations');
+Route::resource('/locations', 'AdminLocationsController')->only([
+    'index', 'store', 'update', 'destroy'
+]);
+
 Route::get('/admin/users', 'AdminUsersController@index')->name('users');
 
 Auth::routes();

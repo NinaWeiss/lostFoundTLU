@@ -32,7 +32,7 @@
         </div>
         <div>
             <h2 class="slash">/</h2>
-            <h2 class="{{ $currentPage == 'locations' ? 'active-menu-item' : '' }}"><a href="{{ route('locations') }}">{{ __('Kogumispunktid') }}</a></h2>
+            <h2 class="{{ $currentPage == 'locations' ? 'active-menu-item' : '' }}"><a href="{{ route('locations.index') }}">{{ __('Kogumispunktid') }}</a></h2>
         </div>
         <div>
             <h2 class="slash">/</h2>

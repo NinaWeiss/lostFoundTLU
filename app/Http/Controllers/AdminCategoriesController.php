@@ -7,6 +7,7 @@ use DB;
 
 class AdminCategoriesController extends Controller
 {
+    public $currentPage;
 
     public function __construct() {
         $this->middleware('auth');
@@ -15,7 +16,6 @@ class AdminCategoriesController extends Controller
     
     public function index() {
 
-        $currentPage = 'categories';
         $categories = DB::table('categories')->get();
 
         return view('admin.categories')

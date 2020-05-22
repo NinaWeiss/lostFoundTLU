@@ -41,7 +41,7 @@
                 @endforeach
         </div>
 
-        <form action="{{ route('categories.store') }}" method="post">
+        <form action="{{ route('categories.store') }}" method="post" style="margin-bottom: 60px;">
                 <div class="col-12">
                     @csrf
                     <input type="text" name="newCat" class="col-12" placeholder="Uus kategooria">
