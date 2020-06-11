@@ -14,7 +14,11 @@
             </header>
             <ul>
                 @foreach ($categories as $cat)
-                    <li><a href="{{ route('found', ['category' => $cat->id]) }}">{{ $cat->name }}</a></li>
+                    @if ($currentPage == 'found')
+                        <li><a href="{{ route('found', ['category' => $cat->id]) }}">{{ $cat->name. ' ' }}<div class="cat-count-parenthesis">(<div class="cat-count">{{ $cat->countFound }}</div>)</div></a></li>
+                    @elseif ($currentPage == 'lost')
+                        <li><a href="{{ route('lost', ['category' => $cat->id]) }}">{{ $cat->name. ' ' }}<div class="cat-count-parenthesis">(<div class="cat-count">{{ $cat->countLost }}</div>)</div></a></li>
+                    @endif
                 @endforeach
                 @if ($currentPage == 'found')
                     <li><a href="{{ route('found') }}">{{ __('Kõik') }}</a></li>

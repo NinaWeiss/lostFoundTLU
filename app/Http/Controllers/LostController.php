@@ -33,7 +33,7 @@ class LostController extends Controller
         }
 
         # Get all categories
-        $categories = DB::table('categories')->get();
+        $categories = DB::select("SELECT *, (SELECT count(*) FROM losts WHERE categories_id = categories.id) AS countLost FROM categories");
 
         return view('lost.index', compact('lost'))
             ->with('categories', $categories)

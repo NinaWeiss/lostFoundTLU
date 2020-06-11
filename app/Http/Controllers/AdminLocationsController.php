@@ -15,20 +15,17 @@ class AdminLocationsController extends Controller
     }
     
     public function index() {
-
-        $locations = DB::table('locations')->get();
-
+        $locations = DB::select("SELECT *, (SELECT count(*) FROM founds WHERE location = locations.id) AS countLocFound FROM locations");
+        
         return view('admin.locations', compact('locations'))
             ->with('currentPage', $this->currentPage);
     }
 
     public function store(Request $request) {
-
         if(!empty($request->newLoc)) {
             $newLoc = $this->test_input($request->newLoc);
             DB::insert('INSERT INTO locations (name) VALUES (?)', [$newLoc]);
         }
-        
         $locations = DB::table('locations')->get();
 
         return view('admin.locations')
@@ -47,7 +44,7 @@ class AdminLocationsController extends Controller
     public function destroy($id) {
 
         DB::delete('DELETE FROM locations WHERE id = :id', ['id' => $id]);
-
+        
         return redirect()->back();
     }
 

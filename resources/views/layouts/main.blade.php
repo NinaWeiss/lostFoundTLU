@@ -58,7 +58,7 @@
                         </div>
                     </section>
 
-                     <!-- Footer -->
+                    <!-- Footer -->
                     <footer id="footer">
                         <p class="copyright">&copy;{{ date('Y') }} All rights reserved. </p>
                     </footer>
@@ -72,11 +72,19 @@
 
         </div>
 
-        <div id="modal"></div>
+        <div id="overlay" class="overlay"></div>
+        <div id="modal" class="modal">
+            <p class="close-button" id="close-button">✖</p>
+            <div class="show-post" id="show-post"></div>
+        </div>
+        <div class="small-modal" id="small-modal">
+            <p class="close-button" id="close-button2">✖</p>
+            <div class="show-post" id="show-post2"></div>
+        </div>
 			<script src="{{ asset('js/jquery.min.js') }}" type="text/javascript"></script>
 			<script src="{{ asset('js/browser.min.js') }}" type="text/javascript"></script>
 			<script src="{{ asset('js/breakpoints.min.js') }}" type="text/javascript"></script>
 			<script src="{{ asset('js/util.js') }}" type="text/javascript"></script>
-			<script src="{{ asset('js/main.js') }}" type="text/javascript"></script>
+            <script src="{{ asset('js/main.js') }}" type="text/javascript"></script>
 	</body>
 </html>

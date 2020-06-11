@@ -6,11 +6,20 @@
         <h3>Kogumispunktid:</h3>
         <div class="table-wrapper">
             <table class="alt">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nimi</th>
+                        <th>L</th>
+                    </tr>
+                </thead>
                 <tbody>
                     @foreach ($locations as $loc)
                         <tr>
                             <td>{{'# '. $loc->id }}</td>
                             <td>{{ $loc->name }}</td>
+                            <!-- COUNTER -->
+                            <td>{{ $locations[$loop->index]->countLocFound}}</td>
                             <td style="text-align: center;">
                                 <span class="edit-buttons">
                                     <form action="{{ route('locations.destroy', ['location' => $loc->id] ) }}" method="POST" style="margin: 5px; display: inline;">

@@ -16,7 +16,7 @@ class AdminCategoriesController extends Controller
     
     public function index() {
 
-        $categories = DB::table('categories')->get();
+        $categories = DB::select("SELECT *, (SELECT count(*) FROM founds WHERE categories_id = categories.id) AS countFound, (SELECT count(*) FROM losts WHERE categories_id = categories.id) AS countLost FROM categories");
 
         return view('admin.categories')
             ->with('categories', $categories)

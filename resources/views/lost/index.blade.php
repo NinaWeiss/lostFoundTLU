@@ -39,13 +39,14 @@
 	<div>
 		{{ $lost->withQueryString()->links() }}
 	</div>
-
-<script>
+	<script src="{{ asset('js/lostAjax.js') }}" type="text/javascript" defer></script>
+	<script>
+	/* Post description shortener */
 	let element = document.getElementsByClassName('main');
 	for (let i = 0; i < element.length; i++) {
-		if(element[i].innerText.length > 80) {
+		if (element[i].innerText.length > 80) {
 			element[i].innerText = element[i].innerText.slice(0, 80) + "...";
 		}
 	}
-</script>
+	</script>
 @endsection

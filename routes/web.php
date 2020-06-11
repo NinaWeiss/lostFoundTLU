@@ -16,28 +16,31 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Route::get('/', 'FoundController@index')->name('found');
+Route::patch('/', 'FoundController@update')->name('updateFoundPost');
+Route::delete('/', 'FoundController@destroy')->name('deleteFoundPost');
+
+/* Route::resource('/', 'FoundController')->only([
+    'update', 'destroy'
+]); */
+
 Route::get('/lost', 'LostController@index')->name('lost');
 Route::get('/add-post', 'AddPostController@index')->name('addPost');
 Route::post('/add-post', 'AddPostController@store')->name('storePost');
 Route::get('/ajax', 'AjaxController@index')->name('ajax');
 Route::get('/auction', 'AuctionController@index')->name('auction');
 
-
 Route::get('/admin/due-posts', 'AdminDuePostsController@index')->name('duePosts');
-
-/* Route::get('/admin/categories', 'AdminCategoriesController@index')->name('categories');
-Route::post('/admin/categories', 'AdminCategoriesController@store')->name('storeCategory');
-Route::patch('/admin/categories', 'AdminCategoriesController@update')->name('updateCategory');
-Route::delete('/admin/categories', 'AdminCategoriesController@delete')->name('deleteCategory'); */
 
 Route::resource('/categories', 'AdminCategoriesController')->only([
     'index', 'store', 'update', 'destroy'
 ]);
-
 Route::resource('/locations', 'AdminLocationsController')->only([
     'index', 'store', 'update', 'destroy'
 ]);
+Route::resource('/users', 'AdminUsersController')->only([
+    'index', 'update', 'destroy'
+]);
 
-Route::get('/admin/users', 'AdminUsersController@index')->name('users');
+/* Route::get('/admin/users', 'AdminUsersController@index')->name('users'); */
 
 Auth::routes();

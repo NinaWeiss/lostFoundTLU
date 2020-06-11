@@ -19,7 +19,7 @@ class CreateFoundsTable extends Migration
             /* $table->foreignId('categories_id')->constrained(); */
             $table->integer('categories_id');
             $table->string('description', 150)->nullable();
-            $table->string('location', 50);
+            $table->integer('location', 50);
             $table->string('image', 150)->nullable();
             $table->timestamps();
         });

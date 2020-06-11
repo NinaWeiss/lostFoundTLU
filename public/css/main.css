@@ -55,6 +55,92 @@ header img {
     margin: 0;
     margin-right: -5px;
 }
+#overlay {
+    visibility: hidden;
+    opacity: 0;
+    position:fixed;
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    background-color:rgba(0,0,0,0.65);
+    z-index:99999;
+    transition: 0.2s ease-in-out;
+    
+}
+#modal,
+.small-modal {
+    visibility: hidden;
+    opacity: 0;
+    position:fixed;
+    width: 100%;
+    height: 100%;
+    max-width: 800px;
+    max-height: 606px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color:white;
+    z-index: 999999;
+    border-radius: 3px;
+    overflow-y: auto;
+    transition: 0.2s ease-in-out;
+}
+.small-modal {
+    max-width: 400px;
+    max-height: 170px;
+}
+.modal-img {
+    width: 100%;
+    height: auto;rgb(214, 214, 214)
+    max-width: 600px;
+    max-height: 360px;
+    margin: 5px 0;
+    object-fit: contain
+}
+.show-post {
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+}
+#show-post2 {
+    text-align: center;
+}
+.show-post p {
+    margin: 0 !Important;
+    border-bottom: 1px solid #f5f6f7;
+}
+.show-post p:last-child {
+    border: none;
+}
+.post-buttons {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 15px;
+    margin-top: 10px;
+}
+.post-buttons i {
+    font-size: 16px;
+}
+.overlay.active,
+.modal.active,
+.small-modal.active {
+    visibility: visible !Important;
+    opacity: 1 !Important;
+}
+.close-button {
+    text-align: right;
+    cursor: pointer;
+    font-size: 20px;
+    width: 100%;
+    max-width: 20px;
+    float: right;
+    margin: 5px 10px;
+}
+.close-button:hover {
+    color: rgb(204, 35, 35);
+    transition: 0.1s ease-in-out;
+}
 .item-data-wrap {
     border: 1px solid rgba(128, 128, 128, 0.19);
     text-align: center;
@@ -121,7 +207,7 @@ header img {
     left: 0;
     top: 0;
     width: 100%;
-    height: 100%;
+    height: 90%;
     z-index: 9999;
 }
 .pagination {
@@ -540,6 +626,9 @@ ul.pagination li:last-child {
     }
     .page-item.disabled {
         font-size: 20px !Important;
+    }
+    .show-post {
+        padding: 10px;
     }
 }
 /************* Custom end ****************/
@@ -3156,6 +3245,19 @@ button.primary:active,
 }
 
 /* Sidebar */
+.cat-count,
+.cat-count-parenthesis {
+    display: inline-block;
+}
+
+.cat-count {
+    color: black;
+}
+
+.cat-count-parenthesis {
+    color: #c01234;
+    font-weight: 600;
+}
 
 #search form {
     text-decoration: none;

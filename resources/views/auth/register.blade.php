@@ -48,7 +48,7 @@
                     <li> <button type="submit" class="primary">{{ __('Registreeri') }}</button></li>
                     <li><input type="reset" value="{{ __('Puhasta') }}" /></li>
                 </ul>
-                <a href="{{ route('users') }}" style="border:none;float:right;">Mine tagasi</a>
+                <a href="{{ route('users.index') }}" style="border:none;float:right;">Mine tagasi</a>
             </div>
         </div>
     </form>

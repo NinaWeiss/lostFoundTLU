@@ -6,11 +6,22 @@
         <h3>Kategooriad:</h3>
         <div class="table-wrapper">
             <table class="alt">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nimi</th>
+                        <th>L</th>
+                        <th>K</th>
+                    </tr>
+                </thead>
                 <tbody>
                     @foreach ($categories as $cat)
                         <tr>
                             <td>{{'# '. $cat->id }}</td>
                             <td>{{ $cat->name }}</td>
+                            <!-- COUNTER -->
+                            <td>{{ $categories[$loop->index]->countFound}}</td>
+                            <td>{{ $categories[$loop->index]->countLost}}</td>
                             <td style="text-align: center;">
                                 <span class="edit-buttons">
                                     <form action="{{ route('categories.destroy', ['category' => $cat->id] ) }}" method="POST" style="margin: 5px; display: inline;">

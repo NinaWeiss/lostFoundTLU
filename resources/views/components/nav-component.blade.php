@@ -36,7 +36,7 @@
         </div>
         <div>
             <h2 class="slash">/</h2>
-            <h2 class="{{ $currentPage == 'users' ? 'active-menu-item' : '' }}"><a href="{{ route('users') }}">{{ __('Kasutajad') }}</a></h2>
+            <h2 class="{{ $currentPage == 'users' ? 'active-menu-item' : '' }}"><a href="{{ route('users.index') }}">{{ __('Kasutajad') }}</a></h2>
         </div>
     </header>
 @endif

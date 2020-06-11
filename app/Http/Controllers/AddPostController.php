@@ -43,7 +43,7 @@ class AddPostController extends Controller
             'itemName' => 'required|max:100',
             'category' => 'required|max:50',
             'role' => 'required',
-            'description' => 'nullable|max:500',
+            'description' => 'nullable|max:250',
             'fileUpload' => 'mimes:jpeg,png,webp,bmp',
             'location' => 'required_if:role,1|max:50',
             'email' => 'required_if:role,2',
@@ -61,13 +61,13 @@ class AddPostController extends Controller
                 $constraint->upsize();
             });
             $imageResize->save(public_path('images/600x400/' .$filename));
-            /* $imageResize->save(public_path('../../htdocs/projekt/images/600x400/' .$filename)); */
+            /* $imageResize->save(public_path('../../htdocs/proj/images/600x400/' .$filename)); */
             // Save thumbnail
             $imageResize->fit(250, 250, function ($constraint) {
                 $constraint->upsize();
             });
             $imageResize->save(public_path('images/250x250/' .$filename));
-            /* $imageResize->save(public_path('../../htdocs/projekt/images/250x250/' .$filename)); */
+            /* $imageResize->save(public_path('../../htdocs/proj/images/250x250/' .$filename)); */
             $imageResize->destroy();
         } else {
             $filename = "1.jpg";
